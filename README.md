@@ -4,6 +4,7 @@ vimrc
 I'm a VIM guy. Here's the vimrc file I use with descriptions about each option.
 
 -------------------------------------------------------------------------------
+<pre><code>
 syntax on               " turn on syntax hilighting
 let mapleader = ","     " bind the comma key as a trigger for calling functions
 set hlsearch            " higlight your search terms
@@ -61,3 +62,4 @@ endfunc
 
 nnoremap <F9> :call LineLimitToggle()<cr>
 nmap <leader>v <F9>
+</code></pre>
