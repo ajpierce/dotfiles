@@ -29,7 +29,7 @@ endif
 
 " With smart tabbing and indenting, pasting text into VIM can cause formatting
 " problems.  I bind the F2 key to toggle 'paste mode' in VIM  nice feature!)
-set pastetoggle=<F2>
+set pastetoggle=&lt;F2&gt;
 
 " This function toggles relative line numbering. This is super handy for
 " deleting or moving chunks of code, because you can see exactly how many
@@ -46,8 +46,8 @@ function! NumberToggle()
     endif
 endfunc
 
-nnoremap <F8> :call NumberToggle()<cr>
-nmap <leader>r <F8>
+nnoremap &lt;F8&gt; :call NumberToggle()&lt;cr&gt;
+nmap &lt;leader&gt;r &lt;F8&gt;
 
 " This function will draw a vertical red bar across column 80. This is handy
 " if you're trying to adhere to coding standards that dictate your code should
@@ -60,6 +60,6 @@ function! LineLimitToggle()
     endif
 endfunc
 
-nnoremap <F9> :call LineLimitToggle()<cr>
-nmap <leader>v <F9>
+nnoremap &lt;F9&gt; :call LineLimitToggle()&lt;cr&gt;
+nmap &lt;leader&gt;v &lt;F9&gt;
 </code></pre>
