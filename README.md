@@ -8,6 +8,7 @@ I'm a VIM guy. Here's the vimrc file I use with descriptions about each option.
 syntax on               " turn on syntax hilighting
 let mapleader = ","     " bind the comma key as a trigger for calling functions
 set hlsearch            " higlight your search terms
+set encoding=utf-8      " 日本語が読められるため
 
 " Replace tabs with spaces, and make tabbing behavior intelligent
 " I keep my tabs at 4 spaces, per the Python standard.
