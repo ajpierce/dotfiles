@@ -21,11 +21,19 @@ set smartindent
 set autoindent
 set ci
 
+" -- WINDOW MANAGEMENT --
+nmap &lt;leader&gt;w :wincmd v&lt;CR&gt;    " Split the screen vertically
+nmap &lt;leader&gt;x :wincmd q&lt;CR&gt;    " Quit a window split
+nmap &lt;leader&gt;q :wincmd h&lt;CR&gt;    " Jump to the left window
+nmap &lt;leader&gt;e :wincmd l&lt;CR&gt;    " Jump to the right window
+nmap &lt;leader&gt;a :bprev&lt;CR&gt;       " Switch to the previous buffer
+nmap &lt;leader&gt;d :bnext&lt;CR&gt;       " Switch to the next buffer
+
 " If I need to change my tabbing (for example, if I'm writing some Ruby),
-" this function will check to see if you open a python file, and set your
-" tab spacing to use Python standards.
+" this function will check to see if you open a Ruby file, and set your
+" tab spacing to use Ruby standards.
 if has("autocmd")
-    autocmd FileType python setlocal ts=4 sts=4 sw=4
+    autocmd FileType ruby setlocal ts=2 sts=2 sw=2
 endif
 
 " With smart tabbing and indenting, pasting text into VIM can cause formatting
@@ -63,4 +71,20 @@ endfunc
 
 nnoremap &lt;F9&gt; :call LineLimitToggle()&lt;cr&gt;
 nmap &lt;leader&gt;v &lt;F9&gt;
+
+" Toggle English spell check in the current document with F10 or ,s
+function! SpellToggle()
+    if(&spell == 1)
+        set nospell
+    else
+        set spell spelllang=en_us
+    endif
+endfunc
+
+nnoremap &lt;F10&gt; :call SpellToggle()&lt;cr&gt;
+nmap &lt;leader&gt;s &lt;F10&gt;
+
+" -- STATUS LINE --
+" Filename [filetype] [selected char encoding] [column, line] [%of file]
+set statusline=%t%m%r%h%w\ %y\ [\%03.3b,\%02.2B]\ [c=%02v,l=%03l/%03L]\ [%p%%]
 </code></pre>
