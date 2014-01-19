@@ -24,12 +24,12 @@ set ci
 au BufNewFile,BufRead *.less set filetype=less  " LESS syntax highlighting
 
 " -- WINDOW MANAGEMENT --
-nmap <leader>w :wincmd v<CR>    " Split the screen vertically
-nmap <leader>x :wincmd q<CR>    " Quit a window split
-nmap <leader>q :wincmd h<CR>    " Jump to the left window
-nmap <leader>e :wincmd l<CR>    " Jump to the right window
-nmap <leader>a :bprev<CR>       " Switch to the previous buffer
-nmap <leader>d :bnext<CR>       " Switch to the next buffer
+nmap &lt;leader&gt;w :wincmd v&lt;CR&gt;    " Split the screen vertically
+nmap &lt;leader&gt;x :wincmd q&lt;CR&gt;    " Quit a window split
+nmap &lt;leader&gt;q :wincmd h&lt;CR&gt;    " Jump to the left window
+nmap &lt;leader&gt;e :wincmd l&lt;CR&gt;    " Jump to the right window
+nmap &lt;leader&gt;a :bprev&lt;CR&gt;       " Switch to the previous buffer
+nmap &lt;leader&gt;d :bnext&lt;CR&gt;       " Switch to the next buffer
 
 " Four-space tabs are a fine default, but there are some languages where
 " two-space tabs are standard. For Ruby, HTML, and CSS, use two-space tabs.
@@ -39,7 +39,7 @@ endif
 
 " With smart tabbing and indenting, pasting text into VIM can cause formatting
 " problems. I bind the F2 key to toggle 'paste mode' in VIM.
-set pastetoggle=<F2>
+set pastetoggle=&lt;F2&gt;
 
 " This function toggles relative line numbering. This is super handy for
 " deleting or moving chunks of code, because you can see exactly how many
@@ -55,8 +55,8 @@ endfunc
 
 " Remember when we bound mapleader to comma earlier? Press comma and
 " then r to toggle relative line numbering.
-nnoremap <F8> :call NumberToggle()<cr>
-nmap <leader>r <F8>
+nnoremap &lt;F8&gt; :call NumberToggle()&lt;cr&gt;
+nmap &lt;leader&gt;r &lt;F8&gt;
 
 " This function will draw a vertical red bar across column 80. This is handy
 " if you're trying to adhere to coding standards that dictate your code should
@@ -69,8 +69,8 @@ function! LineLimitToggle()
     endif
 endfunc
 
-nnoremap <F9> :call LineLimitToggle()<cr>
-nmap <leader>v <F9>
+nnoremap &lt;F9&gt; :call LineLimitToggle()&lt;cr&gt;
+nmap &lt;leader&gt;v &lt;F9&gt;
 
 " Toggle English spell check in the current document with F10 or ,s
 function! SpellToggle()
@@ -81,8 +81,8 @@ function! SpellToggle()
     endif
 endfunc
 
-nnoremap <F10> :call SpellToggle()<cr>
-nmap <leader>s <F10>
+nnoremap &lt;F10&gt; :call SpellToggle()&lt;cr&gt;
+nmap &lt;leader&gt;s &lt;F10&gt;
 
 " Remove trailing whitespace from lines
 function! RemoveTrailingWhitespace()
@@ -90,7 +90,7 @@ function! RemoveTrailingWhitespace()
     :%s/\s\+$//ge
     exe "normal `z"
 endfunc
-noremap <leader>c :call RemoveTrailingWhitespace()<cr>
+noremap &lt;leader&gt;c :call RemoveTrailingWhitespace()&lt;cr&gt;
 
 " -- STATUS LINE --
 " Filename [filetype] [selected char encoding] [column, line] [%of file]
