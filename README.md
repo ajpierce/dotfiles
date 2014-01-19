@@ -5,10 +5,10 @@ I'm a VIM guy. Here's the vimrc file I use with descriptions about each option.
 
 -------------------------------------------------------------------------------
 <pre><code>
-syntax on               " turn on syntax hilighting
-let mapleader = ","     " bind the comma key as a trigger for calling functions
-set hlsearch            " higlight your search terms
-set encoding=utf-8      " 日本語が読められるため
+syntax on               " Turn on syntax hilighting
+let mapleader = ","     " Bind the comma key as a trigger for calling functions
+set hlsearch            " Higlight your search terms
+set encoding=utf-8      " For reading and writing 日本語
 
 " Replace tabs with spaces, and make tabbing behavior intelligent
 " I keep my tabs at 4 spaces, per the Python standard.
@@ -21,6 +21,8 @@ set smartindent
 set autoindent
 set ci
 
+au BufNewFile,BufRead *.less set filetype=less  " LESS syntax highlighting
+
 " -- WINDOW MANAGEMENT --
 nmap &lt;leader&gt;w :wincmd v&lt;CR&gt;    " Split the screen vertically
 nmap &lt;leader&gt;x :wincmd q&lt;CR&gt;    " Quit a window split
@@ -29,23 +31,19 @@ nmap &lt;leader&gt;e :wincmd l&lt;CR&gt;    " Jump to the right window
 nmap &lt;leader&gt;a :bprev&lt;CR&gt;       " Switch to the previous buffer
 nmap &lt;leader&gt;d :bnext&lt;CR&gt;       " Switch to the next buffer
 
-" If I need to change my tabbing (for example, if I'm writing some Ruby),
-" this function will check to see if you open a Ruby file, and set your
-" tab spacing to use Ruby standards.
+" Four-space tabs are a fine default, but there are some languages where
+" two-space tabs are standard. For Ruby, HTML, and CSS, use two-space tabs.
 if has("autocmd")
-    autocmd FileType ruby setlocal ts=2 sts=2 sw=2
+    autocmd FileType html,htmldjango,less,css,ruby setlocal ts=2 sts=2 sw=2
 endif
 
 " With smart tabbing and indenting, pasting text into VIM can cause formatting
-" problems.  I bind the F2 key to toggle 'paste mode' in VIM  nice feature!)
+" problems. I bind the F2 key to toggle 'paste mode' in VIM.
 set pastetoggle=&lt;F2&gt;
 
 " This function toggles relative line numbering. This is super handy for
 " deleting or moving chunks of code, because you can see exactly how many
-" lines you need to dd; I used to go into visual mode for this; no more!
-" 
-" Also, remember when we bound mapleader to comma earlier? Press comma and
-" then r to toggle relative line numbering! Or F8, but ,r is faster ;)
+" lines you need to modify.
 function! NumberToggle()
     if(&relativenumber == 1)
         set number
@@ -55,6 +53,8 @@ function! NumberToggle()
     endif
 endfunc
 
+" Remember when we bound mapleader to comma earlier? Press comma and
+" then r to toggle relative line numbering.
 nnoremap &lt;F8&gt; :call NumberToggle()&lt;cr&gt;
 nmap &lt;leader&gt;r &lt;F8&gt;
 
@@ -83,6 +83,14 @@ endfunc
 
 nnoremap &lt;F10&gt; :call SpellToggle()&lt;cr&gt;
 nmap &lt;leader&gt;s &lt;F10&gt;
+
+" Remove trailing whitespace from lines
+function! RemoveTrailingWhitespace()
+    exe "normal mz"
+    :%s/\s\+$//ge
+    exe "normal `z"
+endfunc
+noremap &lt;leader&gt;c :call RemoveTrailingWhitespace()&lt;cr&gt;
 
 " -- STATUS LINE --
 " Filename [filetype] [selected char encoding] [column, line] [%of file]
