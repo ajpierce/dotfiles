@@ -1,6 +1,7 @@
 # vimrc
 
-I'm a VIM guy. Here's my .vimrc file. It's commented!
+I'm a VIM guy. Here's [my .vimrc file](https://github.com/ajpierce/vimrc/blob/master/.vimrc).
+It's commented!
 
 ## Plugin Management
 

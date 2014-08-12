@@ -14,6 +14,12 @@ set smartindent
 set autoindent
 set ci
 
+" Four-space tabs are a fine default, but there are some languages where
+" two-space tabs are standard. For Ruby, HTML, and CSS, use two-space tabs.
+if has("autocmd")
+    autocmd FileType html,htmldjango,less,scss,css,ruby setlocal ts=2 sts=2 sw=2
+endif
+
 au BufNewFile,BufRead *.less set filetype=less  " LESS syntax highlighting
 
 " -- PLUGIN MANAGEMENT --
@@ -31,15 +37,15 @@ Plugin 'godlygeek/tabular'          " Requirement for vim-markdown
 Plugin 'plasticboy/vim-markdown'    " Markdown syntax highlighting
 Plugin 'kien/ctrlp.vim'             " Full-path fuzzy file/buffer/etc. finder
 
-let g:vim_markdown_initial_foldlevel=1
-
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call vundle#end()            " Required
+filetype plugin indent on    " Required
 
-"invoke plugins
-nmap <leader>b :CtrlPBuffer<cr>
-nmap <leader>f :CtrlP<cr>
+let g:vim_markdown_initial_foldlevel=2
+
+" Invoke CtrlP for fuzzy-searching
+nmap <leader>b :CtrlPBuffer<cr> " Open any file already in the buffer
+nmap <leader>f :CtrlP<cr>       " Open any file in the current (or sub)directory
 
 " -- WINDOW MANAGEMENT --
 nmap <leader>w :wincmd v<CR>    " Split the screen vertically
@@ -48,12 +54,6 @@ nmap <leader>q :wincmd h<CR>    " Jump to the left window
 nmap <leader>e :wincmd l<CR>    " Jump to the right window
 nmap <leader>a :bprev<CR>       " Switch to the previous buffer
 nmap <leader>d :bnext<CR>       " Switch to the next buffer
-
-" Four-space tabs are a fine default, but there are some languages where
-" two-space tabs are standard. For Ruby, HTML, and CSS, use two-space tabs.
-if has("autocmd")
-    autocmd FileType html,htmldjango,less,css,ruby setlocal ts=2 sts=2 sw=2
-endif
 
 " With smart tabbing and indenting, pasting text into VIM can cause formatting
 " problems. I bind the F2 key to toggle 'paste mode' in VIM.
