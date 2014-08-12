@@ -20,7 +20,9 @@ if has("autocmd")
     autocmd FileType html,htmldjango,less,scss,css,ruby setlocal ts=2 sts=2 sw=2
 endif
 
-au BufNewFile,BufRead *.less set filetype=less  " LESS syntax highlighting
+" Syntax highlighting for Less and Markdown filetypes
+au BufNewFile,BufRead *.less set filetype=less
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " -- PLUGIN MANAGEMENT --
 " git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -41,7 +43,8 @@ Plugin 'kien/ctrlp.vim'             " Full-path fuzzy file/buffer/etc. finder
 call vundle#end()            " Required
 filetype plugin indent on    " Required
 
-let g:vim_markdown_initial_foldlevel=2
+" Disable folding of markdown files
+let g:vim_markdown_folding_disabled=1
 
 " Invoke CtrlP for fuzzy-searching
 nmap <leader>b :CtrlPBuffer<cr> " Open any file already in the buffer
