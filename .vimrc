@@ -47,8 +47,8 @@ filetype plugin indent on    " Required
 let g:vim_markdown_folding_disabled=1
 
 " Invoke CtrlP for fuzzy-searching
-nmap <leader>b :CtrlPBuffer<cr> " Open any file already in the buffer
-nmap <leader>f :CtrlP<cr>       " Open any file in the current (or sub)directory
+nmap <leader>b :CtrlPBuffer<CR>|" Open any file already in the buffer
+nmap <leader>f :CtrlP<CR>|      " Open any file in the current (or sub)directory
 
 " -- WINDOW MANAGEMENT --
 nmap <leader>w :wincmd v<CR>    " Split the screen vertically
