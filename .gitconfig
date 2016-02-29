@@ -4,11 +4,11 @@
 [core]
     editor = vim
     excludesfile = ~/.gitignore
+    pager = diff-so-fancy | less --tabs=1,5 -R  ;npm install -g diff-so-fancy
 [color]
     ui = auto
 [alias]
     co = checkout
-    ci = commit
     st = status
     br = branch
     pr = pull
