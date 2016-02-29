@@ -18,12 +18,18 @@ set ci
 " Four-space tabs are a fine default, but there are some languages where
 " two-space tabs are standard. For Ruby, HTML, and CSS, use two-space tabs.
 if has("autocmd")
-    autocmd FileType html,htmldjango,less,scss,css,ruby setlocal ts=2 sts=2 sw=2
+    autocmd FileType html,htmldjango,less,scss,css,ruby,js,jsx setlocal ts=2 sts=2 sw=2
 endif
 
 " Syntax highlighting for Less and Markdown filetypes
 au BufNewFile,BufRead *.less set filetype=less
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" Syntax highlighting for es6
+au BufNewFile,BufRead *.es6 set filetype=javascript
+
+" Syntax highlighting for clojure(script)
+au BufNewFile,BufRead *.clj set filetype=clojure
 
 " -- PLUGIN MANAGEMENT --
 " git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -39,6 +45,8 @@ Plugin 'gmarik/Vundle.vim'          " Let Vundle manage Vundle (required)
 Plugin 'godlygeek/tabular'          " Requirement for vim-markdown
 Plugin 'plasticboy/vim-markdown'    " Markdown syntax highlighting
 Plugin 'kien/ctrlp.vim'             " Full-path fuzzy file/buffer/etc. finder
+Plugin 'pangloss/vim-javascript'    " Javascript indent and syntax support
+Plugin 'tpope/vim-jdaddy'           " JSON manipulation and pretty printing
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " Required
