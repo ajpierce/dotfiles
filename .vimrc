@@ -47,6 +47,8 @@ Plugin 'plasticboy/vim-markdown'    " Markdown syntax highlighting
 Plugin 'kien/ctrlp.vim'             " Full-path fuzzy file/buffer/etc. finder
 Plugin 'pangloss/vim-javascript'    " Javascript indent and syntax support
 Plugin 'tpope/vim-jdaddy'           " JSON manipulation and pretty printing
+Plugin 'guns/vim-clojure-static'    " Clojure syntax highlighting
+Plugin 'ekalinin/Dockerfile.vim'    " Dockerfile syntax highlighting
 
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/](\.git|dist|node_modules|bower_components|resources/public/js|META-INF)$',
