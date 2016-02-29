@@ -48,6 +48,12 @@ Plugin 'kien/ctrlp.vim'             " Full-path fuzzy file/buffer/etc. finder
 Plugin 'pangloss/vim-javascript'    " Javascript indent and syntax support
 Plugin 'tpope/vim-jdaddy'           " JSON manipulation and pretty printing
 
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.git|dist|node_modules|bower_components|resources/public/js|META-INF)$',
+  \ 'file': '\v\.(swp|pyc)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " Required
 filetype plugin indent on    " Required
