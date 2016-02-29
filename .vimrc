@@ -68,8 +68,9 @@ nmap <leader>b :CtrlPBuffer<CR>|" Open any file already in the buffer
 nmap <leader>f :CtrlP<CR>|      " Open any file in the current (or sub)directory
 
 " -- WINDOW MANAGEMENT --
+nmap <leader>t :bd<CR>          " Close current buffer
 nmap <leader>w :wincmd v<CR>    " Split the screen vertically
-nmap <leader>x :wincmd q<CR>    " Quit a window split
+nmap <leader>x :wincmd q <CR>   " Quit a window split
 nmap <leader>q :wincmd h<CR>    " Jump to the left window
 nmap <leader>e :wincmd l<CR>    " Jump to the right window
 nmap <leader>a :bprev<CR>       " Switch to the previous buffer
@@ -96,14 +97,14 @@ endfunc
 nnoremap <F8> :call NumberToggle()<cr>
 nmap <leader>r <F8>
 
-" This function will draw a vertical red bar across column 80. This is handy
+" This function will draw a vertical red bar across column 81. This is handy
 " if you're trying to adhere to coding standards that dictate your code should
 " be readable in an 80-character console. Turn it on or off with F9 or ,v
 function! LineLimitToggle()
-    if(&colorcolumn == 80)
+    if(&colorcolumn == 81)
         set colorcolumn=0
     else
-        set colorcolumn=80
+        set colorcolumn=81
     endif
 endfunc
 
@@ -129,6 +130,12 @@ function! RemoveTrailingWhitespace()
     exe "normal `z"
 endfunc
 noremap <leader>c :call RemoveTrailingWhitespace()<cr>
+
+function! ReIndent()
+    :filetype indent on
+    :set smartindent
+endfunc
+noremap <leader>n :call ReIndent()<cr>
 
 " -- STATUS LINE --
 " Filename [filetype] [selected char encoding] [column, line] [%of file]
