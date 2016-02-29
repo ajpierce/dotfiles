@@ -4,20 +4,15 @@
 [core]
     editor = vim
     excludesfile = ~/.gitignore
-    pager = diff-so-fancy | less --tabs=1,5 -R  ;npm install -g diff-so-fancy
+    pager = diff-so-fancy | less --tabs=1,5 -R      ; npm install -g diff-so-fancy
 [color]
     ui = auto
 [alias]
     co = checkout
     st = status
-    br = branch
-    pr = pull
-    fu = fetch upstream
     diffs = diff --stat
     diffc = diff --cached
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-    type = cat-file -t
-    dump = cat-file -p
     newb = "!git fetch upstream; git checkout upstream/dev; git checkout -b $2"
 [push]
     default = matching
