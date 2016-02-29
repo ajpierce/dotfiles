@@ -1,4 +1,5 @@
 syntax on               " Turn on syntax hilighting
+colorscheme holokai     " Color scheme: http://vimcolors.com/?utf8=%E2%9C%93&bg=dark&colors=any
 let mapleader = ","     " Bind the comma key as a trigger for calling functions
 set hlsearch            " Higlight your search terms
 set encoding=utf-8      " For reading and writing 日本語
