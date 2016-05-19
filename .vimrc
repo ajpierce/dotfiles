@@ -47,6 +47,7 @@ Plugin 'pangloss/vim-javascript'    " Javascript indent and syntax support
 Plugin 'tpope/vim-jdaddy'           " JSON manipulation and pretty printing
 Plugin 'guns/vim-clojure-static'    " Clojure syntax highlighting
 Plugin 'ekalinin/Dockerfile.vim'    " Dockerfile syntax highlighting
+Plugin 'groenewege/vim-less'        " LESS syntax highlighting and autocompletion
 
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/](\.git|dist|node_modules|bower_components|resources/public/js|META-INF)$',
