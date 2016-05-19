@@ -5,20 +5,20 @@ set hlsearch            " Higlight your search terms
 set encoding=utf-8      " For reading and writing 日本語
 
 " Replace tabs with spaces, and make tabbing behavior intelligent
-" I keep my tabs at 4 spaces, per the Python standard.
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
+" I keep my tabs at 2 spaces
+set shiftwidth=2
+set tabstop=2
+set softtabstop=2
 set expandtab
 set smarttab
 set smartindent
 set autoindent
 set ci
 
-" Four-space tabs are a fine default, but there are some languages where
-" two-space tabs are standard. For Ruby, HTML, and CSS, use two-space tabs.
+" Two-space tabs are a fine default, but there are some languages where
+" four-space tabs are standard. I'm looking at you, Python.
 if has("autocmd")
-    autocmd FileType html,htmldjango,less,scss,css,ruby,js,jsx setlocal ts=2 sts=2 sw=2
+    autocmd FileType python setlocal ts=4 sts=4 sw=4
 endif
 
 " Syntax highlighting for Less and Markdown filetypes
