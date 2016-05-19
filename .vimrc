@@ -42,8 +42,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'          " Let Vundle manage Vundle (required)
-Plugin 'godlygeek/tabular'          " Requirement for vim-markdown
-Plugin 'plasticboy/vim-markdown'    " Markdown syntax highlighting
 Plugin 'kien/ctrlp.vim'             " Full-path fuzzy file/buffer/etc. finder
 Plugin 'pangloss/vim-javascript'    " Javascript indent and syntax support
 Plugin 'tpope/vim-jdaddy'           " JSON manipulation and pretty printing
