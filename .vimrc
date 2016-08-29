@@ -44,6 +44,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'          " Let Vundle manage Vundle (required)
 Plugin 'ctrlpvim/ctrlp.vim'         " Full-path fuzzy file/buffer/etc. finder
 Plugin 'pangloss/vim-javascript'    " Javascript indent and syntax support
+Plugin 'mxw/vim-jsx'                " JSX syntax highlighting and indenting
 Plugin 'tpope/vim-jdaddy'           " JSON manipulation and pretty printing
 Plugin 'guns/vim-clojure-static'    " Clojure syntax highlighting
 Plugin 'ekalinin/Dockerfile.vim'    " Dockerfile syntax highlighting
