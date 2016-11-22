@@ -3,6 +3,7 @@ colorscheme holokai     " Color scheme: http://vimcolors.com/?utf8=%E2%9C%93&bg=
 let mapleader = ","     " Bind the comma key as a trigger for calling functions
 set hlsearch            " Higlight your search terms
 set encoding=utf-8      " For reading and writing 日本語
+set backupcopy=yes      " So Webpack Hot Loader catches file saves
 
 " Replace tabs with spaces, and make tabbing behavior intelligent
 " I keep my tabs at 2 spaces
@@ -55,6 +56,8 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(swp|pyc)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
+
+let g:jsx_ext_required = 0
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " Required
