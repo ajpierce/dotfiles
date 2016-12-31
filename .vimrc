@@ -48,6 +48,7 @@ Plugin 'pangloss/vim-javascript'    " Javascript indent and syntax support
 Plugin 'mxw/vim-jsx'                " JSX syntax highlighting and indenting
 Plugin 'tpope/vim-jdaddy'           " JSON manipulation and pretty printing
 Plugin 'guns/vim-clojure-static'    " Clojure syntax highlighting
+Plugin 'tpope/vim-fireplace'        " Clojure REPL
 Plugin 'ekalinin/Dockerfile.vim'    " Dockerfile syntax highlighting
 Plugin 'groenewege/vim-less'        " LESS syntax highlighting and autocompletion
 
