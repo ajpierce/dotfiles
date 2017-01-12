@@ -51,6 +51,7 @@ Plugin 'guns/vim-clojure-static'    " Clojure syntax highlighting
 Plugin 'tpope/vim-fireplace'        " Clojure REPL
 Plugin 'ekalinin/Dockerfile.vim'    " Dockerfile syntax highlighting
 Plugin 'groenewege/vim-less'        " LESS syntax highlighting and autocompletion
+Plugin 'AndrewRadev/sideways.vim'   " Move function arguments quickly
 
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/](\.git|dist|node_modules|bower_components|resources/public/js|META-INF)$',
@@ -66,6 +67,10 @@ filetype plugin indent on    " Required
 
 " Disable folding of markdown files
 let g:vim_markdown_folding_disabled=1
+
+" Sideways.vim function param swapping
+nmap zh :SidewaysLeft<CR>
+nmap zl :SidewaysRight<CR>
 
 " Invoke CtrlP for fuzzy-searching
 nmap <leader>b :CtrlPBuffer<CR>|" Open any file already in the buffer
