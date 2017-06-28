@@ -16,11 +16,8 @@ set smartindent
 set autoindent
 set ci
 
-" Two-space tabs are a fine default, but there are some languages where
-" four-space tabs are standard. I'm looking at you, Python.
-if has("autocmd")
-    autocmd FileType python setlocal ts=4 sts=4 sw=4
-endif
+" Set custom file formatting
+autocmd FileType python setlocal ts=4 sts=4 sw=4
 
 " Syntax highlighting for Less and Markdown filetypes
 au BufNewFile,BufRead *.less set filetype=less
@@ -32,38 +29,44 @@ au BufNewFile,BufRead *.es6 set filetype=javascript
 " Syntax highlighting for clojure(script)
 au BufNewFile,BufRead *.clj set filetype=clojure
 
+" Automatic syntax formatting
+autocmd BufWritePre * Neoformat
+autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --parser\ flow\ --single-quote\ --trailing-comma\ es5\ --print-width\ 130
+let g:neoformat_try_formatprg = 1 " Use formatprg when available
+let g:neoformat_enabled_javascript = ['prettier-eslint', 'prettier']
+let g:neoformat_enabled_json = ['prettier-eslint', 'prettier']
+let g:neoformat_enabled_css = ['prettier-eslint', 'prettier']
+let g:neoformat_enabled_less = ['prettier-eslint', 'prettier']
+
 " -- PLUGIN MANAGEMENT --
-" git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+call plug#begin('~/.vim/plugged')
+Plug 'gmarik/Vundle.vim'          " Let Vundle manage Vundle (required)
+Plug 'AndrewRadev/sideways.vim'   " Move function arguments quickly
+Plug 'ekalinin/Dockerfile.vim'    " Dockerfile syntax highlighting
+Plug 'groenewege/vim-less'        " LESS syntax highlighting and autocompletion
+Plug 'mxw/vim-jsx'                " JSX syntax highlighting and indenting
+Plug 'pangloss/vim-javascript'    " Javascript indent and syntax support
+Plug 'sbdchd/neoformat'           " Automatic syntax formatting for nearly any language
+Plug 'tpope/vim-jdaddy'           " JSON manipulation and pretty printing
+Plug 'w0rp/ale'                   " Asyncronous Lint Editor
 
-set nocompatible              " Be iMproved, required
-filetype off                  " Required
+" Fuzzy pattern matching for quick navigation; a replacement for CtrlP
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'   " Add directores/files to ignore to ~/.agignore
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'gmarik/Vundle.vim'          " Let Vundle manage Vundle (required)
-Plugin 'ctrlpvim/ctrlp.vim'         " Full-path fuzzy file/buffer/etc. finder
-Plugin 'pangloss/vim-javascript'    " Javascript indent and syntax support
-Plugin 'mxw/vim-jsx'                " JSX syntax highlighting and indenting
-Plugin 'tpope/vim-jdaddy'           " JSON manipulation and pretty printing
-Plugin 'guns/vim-clojure-static'    " Clojure syntax highlighting
-Plugin 'tpope/vim-fireplace'        " Clojure REPL
-Plugin 'ekalinin/Dockerfile.vim'    " Dockerfile syntax highlighting
-Plugin 'groenewege/vim-less'        " LESS syntax highlighting and autocompletion
-Plugin 'AndrewRadev/sideways.vim'   " Move function arguments quickly
-
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.git|dist|node_modules|bower_components|resources/public/js|META-INF)$',
-  \ 'file': '\v\.(swp|pyc)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
+" Clojure Plugins
+Plug 'guns/vim-clojure-static', { 'for': 'clojure' }    " Clojure syntax highlighting
+Plug 'tpope/vim-classpath', { 'for': 'clojure' }        " Sets the path for JVM languages to match classpath of current project
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }        " Clojure REPL
+Plug 'tpope/vim-salve', { 'for': 'clojure' }            " Static VIM support for Leiningen and Boot
+Plug 'venantius/vim-cljfmt', { 'for': 'clojure' }       " In-buffer auto-formatting of Clojure
+Plug 'vim-scripts/paredit.vim', { 'for': 'clojure' }    " Structured editing of Lisp S-expressions
+call plug#end()
 
 let g:jsx_ext_required = 0
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " Required
-filetype plugin indent on    " Required
+let g:paredit_mode = 0
 
 " Disable folding of markdown files
 let g:vim_markdown_folding_disabled=1
@@ -73,8 +76,8 @@ nmap zh :SidewaysLeft<CR>
 nmap zl :SidewaysRight<CR>
 
 " Invoke CtrlP for fuzzy-searching
-nmap <leader>b :CtrlPBuffer<CR>|" Open any file already in the buffer
-nmap <leader>f :CtrlP<CR>|      " Open any file in the current (or sub)directory
+nmap <leader>b :Buffers<CR>| " Open any file already in the buffer  (FZF)
+nmap <leader>f :Files<CR>|   " Open any file in the current (or sub)directory (FZF)
 
 " -- WINDOW MANAGEMENT --
 nmap <leader>t :bd<CR>          " Close current buffer
