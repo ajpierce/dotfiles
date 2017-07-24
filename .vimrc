@@ -15,6 +15,7 @@ set smarttab
 set smartindent
 set autoindent
 set ci
+set backspace=indent,eol,start  " So we can properly delete EOLs
 
 " Set custom file formatting
 autocmd FileType python setlocal ts=4 sts=4 sw=4
