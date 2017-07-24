@@ -31,7 +31,7 @@ au BufNewFile,BufRead *.es6 set filetype=javascript
 au BufNewFile,BufRead *.clj set filetype=clojure
 
 " Automatic syntax formatting
-autocmd BufWritePre * Neoformat
+autocmd BufWritePre *.js Neoformat
 autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --parser\ flow\ --single-quote\ --trailing-comma\ es5\ --print-width\ 130
 let g:neoformat_try_formatprg = 1 " Use formatprg when available
 let g:neoformat_enabled_javascript = ['prettier-eslint', 'prettier']
