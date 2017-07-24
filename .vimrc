@@ -49,18 +49,22 @@ Plug 'mxw/vim-jsx'                " JSX syntax highlighting and indenting
 Plug 'pangloss/vim-javascript'    " Javascript indent and syntax support
 Plug 'sbdchd/neoformat'           " Automatic syntax formatting for nearly any language
 Plug 'tpope/vim-jdaddy'           " JSON manipulation and pretty printing
+Plug 'tpope/vim-surround'         " Intelligence for doing things surrounding other things
 Plug 'w0rp/ale'                   " Asyncronous Lint Editor
 
-" Fuzzy pattern matching for quick navigation; a replacement for CtrlP
+" Fuzzy pattern matching for quick navigation; a replacement for CtrlP; MUST HAVE `ag` INSTALLED!
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'   " Add directores/files to ignore to ~/.agignore
 
 " Clojure Plugins
 Plug 'guns/vim-clojure-static', { 'for': 'clojure' }    " Clojure syntax highlighting
+Plug 'guns/vim-sexp', { 'for': 'clojure' }              " S-Expression Precision Editing of Forms
 Plug 'tpope/vim-classpath', { 'for': 'clojure' }        " Sets the path for JVM languages to match classpath of current project
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }        " Clojure REPL
+Plug 'tpope/vim-repeat', { 'for': 'clojure' }           " Allow plugins to take advantage of repeat
 Plug 'tpope/vim-salve', { 'for': 'clojure' }            " Static VIM support for Leiningen and Boot
+Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
 Plug 'venantius/vim-cljfmt', { 'for': 'clojure' }       " In-buffer auto-formatting of Clojure
 Plug 'vim-scripts/paredit.vim', { 'for': 'clojure' }    " Structured editing of Lisp S-expressions
 call plug#end()
