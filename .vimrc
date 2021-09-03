@@ -189,3 +189,7 @@ nmap <C-a> <Plug>(iced_format_all)
 let g:sexp_mappings = {'sexp_indent': '', 'sexp_indent_top': ''}
 " If using a babashka REPL in vim-iced, make it an nrepl (instead of socket)
 let g:iced#repl#babashka_repl_type = 'nrepl'
+" Direct stdout from vim-iced to /tmp/iced_stdout
+let g:iced#buffer#stdout#mods = 'vertical'
+let g:iced#buffer#stdout#file = '/tmp/iced_stdout'
+let g:iced#buffer#stdout#file_buffer_size = 1
